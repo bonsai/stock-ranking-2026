@@ -38,12 +38,14 @@ code{background:var(--bg);padding:2px 6px;border-radius:3px;font-family:'JetBrai
 <div class="api-info">
   <label style="color:var(--cyan);margin-bottom:8px">API エンドポイント</label>
   <select id="apiEndpoint">
-    <option value="https://ai-engine.sakura.ad.jp/v1/chat/completions">Sakura AI Engine (推奨)</option>
-    <option value="https://api.anthropic.com/v1/messages">Anthropic Claude</option>
+    <option value="https://api.ai.sakura.ad.jp/v1/chat/completions">Sakura AI API (推奨)</option>
     <option value="https://api.openai.com/v1/chat/completions">OpenAI GPT</option>
-    <option value="custom">カスタム...</option>
+    <option value="https://api.anthropic.com/v1/messages">Anthropic Claude</option>
+    <option value="https://api.groq.com/openai/v1/chat/completions">Groq</option>
+    <option value="custom">その他 (カスタム入力)</option>
   </select>
-  <input type="text" id="customEndpoint" placeholder="カスタムエンドポイント URL" style="margin-top:10px;display:none">
+  <input type="text" id="customEndpoint" placeholder="https://your-api-endpoint.com/v1/chat/completions" style="margin-top:10px;display:none">
+  <p style="font-size:11px;color:var(--dim);margin-top:8px">※ エンドポイントが見つからない場合は、API ドキュメントをご確認ください</p>
 </div>
 
 <p style="font-size:12px;color:var(--dim);margin-bottom:8px">Sakura API キー:</p>
