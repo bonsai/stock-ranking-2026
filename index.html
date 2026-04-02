@@ -173,10 +173,15 @@ td.del-td{width:44px;text-align:center;padding:0 8px}
 .desc-card.new-card{animation:cardIn .4s ease forwards}
 footer{margin-top:40px;border-top:1px solid var(--bdr);padding-top:18px;
   font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);line-height:2;text-align:center}
+.api-link{position:fixed;top:20px;right:20px;font-family:'JetBrains Mono',monospace;font-size:10px;
+  color:var(--cyan);text-decoration:none;border:1px solid rgba(0,216,200,.3);padding:6px 12px;
+  border-radius:4px;background:var(--sur);transition:all .15s;z-index:100}
+.api-link:hover{background:rgba(0,216,200,.1);border-color:var(--cyan)}
 </style>
 </head>
 <body>
 <div class="wrap">
+<a href="setup-api-key.html" class="api-link">🔑 API 設定</a>
 <header>
   <div class="htag">▶ JP SMALL-MID CAP SCREENER · 2026</div>
   <h1>日本株 成長銘柄<br><em>スクリーニング</em></h1>
@@ -246,7 +251,7 @@ footer{margin-top:40px;border-top:1px solid var(--bdr);padding-top:18px;
 // ── CONFIG ──────────────────────────────────────────
 // API Key loaded from localStorage (set via setup-api-key.html)
 const API_KEY = localStorage.getItem('sakura_api_key') || window.SAKURA_API_KEY || '';
-const API_ENDPOINT = localStorage.getItem('sakura_api_endpoint') || window.SAKURA_API_ENDPOINT || 'https://api.ai.sakura.ad.jp/v1/chat/completions';
+const API_ENDPOINT = window.SAKURA_API_ENDPOINT || 'https://api.ai.sakura.ad.jp/v1/chat/completions';
 
 // ── DATA ──────────────────────────────────────────
 let stocks = [
