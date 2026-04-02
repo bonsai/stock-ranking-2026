@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Key Setup - Stock Ranking 2026</title>
+<style>
+:root{--bg:#07090f;--sur:#0c1120;--bdr:#1b2d4f;--cyan:#00d8c8;--gold:#eab84a;--green:#2ee87a;--red:#ff4d6d;--text:#e2e8f4;--sub:#8899bb}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:'Noto Sans JP',system-ui,sans-serif;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+.wrap{max-width:560px;width:100%;background:var(--sur);border:1px solid var(--bdr);border-radius:12px;padding:32px}
+h1{font-size:18px;color:var(--cyan);margin-bottom:20px;font-weight:600}
+p{font-size:13px;color:var(--sub);margin-bottom:15px;line-height:1.6}
+input{width:100%;padding:12px 14px;background:var(--bg);border:1px solid var(--bdr);color:var(--gold);font-family:'JetBrains Mono',monospace;font-size:13px;border-radius:6px;margin-bottom:15px;outline:none;transition:border-color .2s}
+input:focus{border-color:var(--cyan)}
+.btn-row{display:flex;gap:10px;margin-top:20px}
+button{flex:1;padding:12px 16px;border-radius:6px;border:1px solid rgba(0,216,200,.3);background:linear-gradient(135deg,#0d3a6e,#0d5c4e);color:var(--cyan);cursor:pointer;font-weight:600;font-size:13px;transition:all .15s}
+button:hover:not(:disabled){background:linear-gradient(135deg,#1a4a8e,#1a8a6e);border-color:var(--cyan)}
+button:disabled{opacity:.5;cursor:not-allowed}
+button.secondary{background:var(--bg);color:var(--sub)}
+button.secondary:hover{border-color:var(--gold);color:var(--gold)}
+.msg{padding:12px;border-radius:6px;margin-top:20px;font-size:12px;display:none;line-height:1.6}
+.msg.ok{background:rgba(46,232,122,.08);border:1px solid rgba(46,232,122,.25);color:var(--green);display:block}
+.msg.err{background:rgba(255,77,109,.08);border:1px solid rgba(255,77,109,.25);color:var(--red);display:block}
+.note{background:rgba(0,216,200,.05);border-left:3px solid var(--cyan);padding:12px;margin:20px 0;font-size:12px;line-height:1.7;color:var(--sub)}
+code{background:var(--bg);padding:2px 6px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold)}
+.api-info{background:var(--bg);border:1px solid var(--bdr);border-radius:6px;padding:12px;margin:15px 0;font-size:12px}
+.api-info label{color:var(--dim);display:block;margin-bottom:6px}
+.api-info select{width:100%;padding:8px;background:var(--sur);border:1px solid var(--bdr);color:var(--text);border-radius:4px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>🔑 API Key Setup</h1>
+
+<p>Sakura LLM API のキーを設定します。キーはブラウザの localStorage にのみ保存され、外部には送信されません。</p>
+
+<div class="api-info">
+  <label style="color:var(--cyan);margin-bottom:8px">API エンドポイント</label>
+  <select id="apiEndpoint">
+    <option value="https://ai-engine.sakura.ad.jp/v1/chat/completions">Sakura AI Engine (推奨)</option>
+    <option value="https://api.anthropic.com/v1/messages">Anthropic Claude</option>
+    <option value="https://api.openai.com/v1/chat/completions">OpenAI GPT</option>
+    <option value="custom">カスタム...</option>
+  </select>
+  <input type="text" id="customEndpoint" placeholder="カスタムエンドポイント URL" style="margin-top:10px;display:none">
+</div>
+
+<p style="font-size:12px;color:var(--dim);margin-bottom:8px">Sakura API キー:</p>
+<input type="password" id="apiKey" placeholder="88ce95d3-xxxx-xxxx-xxxx-xxxxxxxxxxxx:your-token" autocomplete="off">
+
+<div class="btn-row">
+  <button onclick="saveKey()">💾 保存</button>
+  <button onclick="testKey()" class="secondary">🔍 テスト</button>
+</div>
+
+<div id="msg" class="msg"></div>
+
+<div class="note">
+  <strong>使い方:</strong><br>
+  1. API キーを入力して「保存」をクリック<br>
+  2. <code>stock_ranking_2026.html</code> を開く（キーが自動読み込みされます）<br>
+  3. 銘柄コードを入力して AI 評価を実行<br>
+  <br>
+  <strong>キーの削除:</strong> ブラウザコンソールで <code>localStorage.removeItem('sakura_api_key')</code>
+</div>
+
+<div class="note" style="border-left-color:var(--gold);background:rgba(234,184,74,.05)">
+  <strong>セキュリティ:</strong> API キーはあなたのブラウザ内にのみ保存されます。GitHub にプッシュする際は、GitHub Secrets を使用してください。
+</div>
+</div>
+
+<script>
+const ENDPOINT_SELECT = document.getElementById('apiEndpoint');
+const CUSTOM_INPUT = document.getElementById('customEndpoint');
+
+// Show custom input if 'custom' selected
+ENDPOINT_SELECT.addEventListener('change', () => {
+  CUSTOM_INPUT.style.display = ENDPOINT_SELECT.value === 'custom' ? 'block' : 'none';
+});
+
+// Load existing config
+const existingKey = localStorage.getItem('sakura_api_key');
+const existingEndpoint = localStorage.getItem('sakura_api_endpoint');
+
+if(existingKey) {
+  document.getElementById('apiKey').value = existingKey;
+  showMsg('API キーが既に設定されています ✓', 'ok');
+}
+if(existingEndpoint) {
+  if(['https://llm.sakura.ad.jp/api/v1/chat/completions','https://api.anthropic.com/v1/messages','https://api.openai.com/v1/chat/completions'].includes(existingEndpoint)) {
+    ENDPOINT_SELECT.value = existingEndpoint;
+  } else {
+    ENDPOINT_SELECT.value = 'custom';
+    CUSTOM_INPUT.value = existingEndpoint;
+    CUSTOM_INPUT.style.display = 'block';
+  }
+}
+
+function getEndpoint() {
+  return ENDPOINT_SELECT.value === 'custom' ? CUSTOM_INPUT.value.trim() : ENDPOINT_SELECT.value;
+}
+
+function saveKey() {
+  const key = document.getElementById('apiKey').value.trim();
+  const endpoint = getEndpoint();
+  
+  if(!key) {
+    showMsg('API キーを入力してください', 'err');
+    return;
+  }
+  if(!endpoint) {
+    showMsg('API エンドポイントを選択してください', 'err');
+    return;
+  }
+  
+  localStorage.setItem('sakura_api_key', key);
+  localStorage.setItem('sakura_api_endpoint', endpoint);
+  showMsg('設定を保存しました！<code>stock_ranking_2026.html</code> を開いてください', 'ok');
+}
+
+async function testKey() {
+  const key = document.getElementById('apiKey').value.trim();
+  const endpoint = getEndpoint();
+  
+  if(!key) {
+    showMsg('API キーを入力してください', 'err');
+    return;
+  }
+  if(!endpoint) {
+    showMsg('API エンドポイントを選択してください', 'err');
+    return;
+  }
+  
+  showMsg('接続をテスト中...', 'ok');
+  
+  try {
+    const isSakura = endpoint.includes('sakura');
+    const isAnthropic = endpoint.includes('anthropic');
+    
+    const payload = isAnthropic ? {
+      model: 'claude-sonnet-4-20250514',
+      max_tokens: 100,
+      messages: [{role:'user', content:'Hello'}]
+    } : {
+      model: isSakura ? 'sakura-v1' : 'gpt-3.5-turbo',
+      messages: [{role:'user', content:'Hello'}]
+    };
+    
+    const headers = isAnthropic ? {
+      'Content-Type': 'application/json',
+      'x-api-key': key
+    } : {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${key}`
+    };
+    
+    const res = await fetch(endpoint, {method:'POST', headers, body:JSON.stringify(payload)});
+    
+    if(res.ok) {
+      showMsg('接続成功！API キーは有効です ✓', 'ok');
+    } else {
+      const err = await res.text();
+      showMsg(`接続失敗：${res.status} - ${err}`, 'err');
+    }
+  } catch(e) {
+    showMsg(`接続失敗：${e.message}<br>※ CORS エラーの場合、サーバー側で CORS 設定が必要です`, 'err');
+  }
+}
+
+function showMsg(text, type) {
+  const msg = document.getElementById('msg');
+  msg.innerHTML = text;
+  msg.className = 'msg ' + type;
+}
+</script>
+</body>
+</html>

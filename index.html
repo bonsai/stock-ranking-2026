@@ -19,8 +19,6 @@ body::before{content:'';position:fixed;inset:0;
   background-size:48px 48px;pointer-events:none;z-index:0}
 
 .wrap{position:relative;z-index:1;max-width:1440px;margin:0 auto;padding:40px 28px}
-
-/* HEADER */
 header{margin-bottom:36px}
 .htag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;color:var(--cyan);
   border:1px solid rgba(0,216,200,.3);padding:3px 12px;border-radius:2px;display:inline-block;margin-bottom:14px;opacity:.8}
@@ -28,8 +26,6 @@ h1{font-size:clamp(24px,4vw,46px);font-weight:700;letter-spacing:-.02em;line-hei
 h1 em{font-style:normal;color:var(--gold2)}
 .hsub{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--sub);letter-spacing:.06em}
 .hline{height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);margin-top:24px;opacity:.3}
-
-/* CRITERIA */
 .criteria{display:flex;flex-wrap:wrap;gap:8px;margin:32px 0 32px}
 .crit{background:var(--sur);border:1px solid var(--bdr);border-radius:6px;padding:12px 16px;
   flex:1;min-width:130px;position:relative;overflow:hidden}
@@ -43,8 +39,6 @@ h1 em{font-style:normal;color:var(--gold2)}
 .crit.b .crit-pt{color:var(--cyan)}.crit.s .crit-pt{color:var(--red)}
 .crit-name{font-size:9px;font-family:'JetBrains Mono',monospace;letter-spacing:.1em;color:var(--dim);text-transform:uppercase;margin-bottom:5px}
 .crit-lbl{font-size:10px;color:var(--sub);line-height:1.5}
-
-/* ── SEARCH FORM ── */
 .search-box{
   background:var(--sur);border:1px solid var(--bdr);border-radius:10px;
   padding:20px 24px;margin-bottom:28px;position:relative;overflow:hidden;
@@ -76,8 +70,6 @@ h1 em{font-style:normal;color:var(--gold2)}
 .search-btn:hover:not(:disabled){background:linear-gradient(135deg,#1a4a8e,#1a8a6e);border-color:var(--cyan);}
 .search-btn:disabled{opacity:.4;cursor:not-allowed}
 .search-hint{font-size:11px;color:var(--dim);font-family:'JetBrains Mono',monospace;margin-left:4px}
-
-/* loading bar */
 .load-bar{height:2px;background:var(--bdr);border-radius:1px;overflow:hidden;margin-top:14px;opacity:0;transition:opacity .2s}
 .load-bar.show{opacity:1}
 .load-fill{height:100%;width:0;border-radius:1px;
@@ -88,13 +80,9 @@ h1 em{font-style:normal;color:var(--gold2)}
 .load-status.show{opacity:1}
 .blink{animation:blink .8s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-
-/* error msg */
 .err-msg{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--red);
   margin-top:10px;display:none;letter-spacing:.05em}
 .err-msg.show{display:block}
-
-/* SORT BAR */
 .sort-bar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;align-items:center}
 .sort-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);letter-spacing:.15em;margin-right:4px;text-transform:uppercase}
 .sort-btn{font-family:'JetBrains Mono',monospace;font-size:11px;padding:5px 12px;border-radius:4px;
@@ -102,8 +90,6 @@ h1 em{font-style:normal;color:var(--gold2)}
 .sort-btn:hover{border-color:var(--gold);color:var(--gold)}
 .sort-btn.active{background:rgba(201,151,46,.12);border-color:var(--gold);color:var(--gold2)}
 .sort-btn.active.asc::after{content:' ▲'}.sort-btn.active.desc::after{content:' ▼'}
-
-/* TABLE */
 .tbl-wrap{overflow-x:auto;border-radius:10px;border:1px solid var(--bdr);background:var(--sur)}
 table{width:100%;border-collapse:collapse;font-size:13px}
 thead th{background:var(--sur2);padding:10px 13px;text-align:left;
@@ -114,8 +100,6 @@ tbody tr{border-bottom:1px solid rgba(27,45,79,.5);transition:background .12s}
 tbody tr:hover{background:rgba(255,255,255,.022)}
 tbody tr:last-child{border:none}
 td{padding:12px 13px;vertical-align:middle;white-space:nowrap}
-
-/* row animations */
 @keyframes rowIn{
   from{opacity:0;transform:translateX(-24px);background:rgba(0,216,200,.08)}
   60%{background:rgba(0,216,200,.06)}
@@ -127,12 +111,8 @@ td{padding:12px 13px;vertical-align:middle;white-space:nowrap}
 }
 tr.new-entry{animation:rowIn .55s cubic-bezier(.16,1,.3,1) forwards}
 tr.removing{animation:rowOut .32s ease forwards}
-
-/* rank */
 .rn{font-family:'JetBrains Mono',monospace;font-size:16px;font-weight:700;color:var(--dim);text-align:center;width:44px}
 .rn.g1{color:var(--gold2)}.rn.g2{color:#b8c0cc}.rn.g3{color:#a0714a}
-
-/* name */
 .nm{font-weight:500;font-size:13px;line-height:1.3}
 .cd{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--sub);margin-top:1px}
 .tag{display:inline-block;font-size:9px;font-family:'JetBrains Mono',monospace;
@@ -140,18 +120,12 @@ tr.removing{animation:rowOut .32s ease forwards}
 .tag.orig{background:rgba(201,151,46,.12);color:var(--gold);border:1px solid rgba(201,151,46,.25)}
 .tag.added{background:rgba(0,216,200,.08);color:var(--cyan);border:1px solid rgba(0,216,200,.2)}
 .tag.new{background:rgba(46,232,122,.1);color:var(--green);border:1px solid rgba(46,232,122,.25)}
-
-/* forecast */
 .fc{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:14px;color:var(--gold2);text-align:right}
-
-/* grade */
 .gr{display:inline-block;padding:2px 8px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700}
 .grAp{background:rgba(46,232,122,.12);color:var(--green);border:1px solid rgba(46,232,122,.25)}
 .grA{background:rgba(74,158,255,.12);color:var(--blue);border:1px solid rgba(74,158,255,.25)}
 .grB{background:rgba(167,139,250,.12);color:var(--purple);border:1px solid rgba(167,139,250,.25)}
 .grC{background:rgba(136,153,187,.1);color:var(--sub);border:1px solid rgba(136,153,187,.2)}
-
-/* score */
 .sc-wrap{display:flex;align-items:center;gap:8px;min-width:96px}
 .sc-n{font-family:'JetBrains Mono',monospace;font-size:14px;font-weight:700;min-width:26px;text-align:right}
 .sc-bg{flex:1;height:5px;background:rgba(255,255,255,.05);border-radius:3px;overflow:hidden;min-width:46px}
@@ -160,13 +134,9 @@ tr.removing{animation:rowOut .32s ease forwards}
 .s-A .sc-n{color:var(--green)}.s-A .sc-fill{background:linear-gradient(90deg,#0d5c2e,var(--green))}
 .s-B .sc-n{color:var(--blue)}.s-B .sc-fill{background:linear-gradient(90deg,#0d2d5c,var(--blue))}
 .s-C .sc-n{color:var(--sub)}.s-C .sc-fill{background:var(--dim)}
-
-/* mini bars */
 .mb{display:flex;gap:3px;align-items:flex-end;height:22px}
 .mb-b{width:7px;border-radius:2px 2px 0 0;min-height:2px}
 .mb-g{background:var(--green)}.mb-p{background:var(--gold)}.mb-f{background:var(--blue)}.mb-v{background:var(--purple)}.mb-s{background:var(--cyan)}
-
-/* foreign */
 .fb-wrap{min-width:72px}
 .fb-pct{font-family:'JetBrains Mono',monospace;font-size:12px;text-align:right}
 .fb-bar{height:4px;background:rgba(255,255,255,.05);border-radius:2px;margin-top:3px;overflow:hidden}
@@ -174,18 +144,13 @@ tr.removing{animation:rowOut .32s ease forwards}
 .stretch-hi .fb-pct{color:var(--green)}.stretch-hi .fb-fill{background:linear-gradient(90deg,#0d5c2e,var(--green))}
 .stretch-md .fb-pct{color:var(--gold)}.stretch-md .fb-fill{background:linear-gradient(90deg,#5c3a0d,var(--gold2))}
 .stretch-lo .fb-pct{color:var(--sub)}.stretch-lo .fb-fill{background:var(--dim)}
-
-/* DELETE btn */
 .del-btn{
   width:26px;height:26px;border-radius:50%;border:1px solid transparent;
   background:transparent;color:var(--dim);cursor:pointer;font-size:13px;
-  display:flex;align-items:center;justify-content:center;
-  transition:all .15s;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0;
 }
 .del-btn:hover{background:rgba(255,77,109,.12);border-color:rgba(255,77,109,.35);color:var(--red)}
 td.del-td{width:44px;text-align:center;padding:0 8px}
-
-/* DESCRIPTIONS */
 .desc-section{margin-top:56px;border-top:1px solid var(--bdr);padding-top:36px}
 .desc-section h2{font-size:13px;font-weight:500;font-family:'JetBrains Mono',monospace;
   color:var(--sub);letter-spacing:.15em;text-transform:uppercase;margin-bottom:24px}
@@ -199,43 +164,35 @@ td.del-td{width:44px;text-align:center;padding:0 8px}
 .dc-code{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--sub)}
 .dc-body{font-size:11px;color:var(--sub);line-height:1.75}
 .dc-meta{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--cyan);margin-bottom:5px}
-
-/* desc card delete */
 .dc-del{position:absolute;top:10px;right:10px;width:22px;height:22px;
   border-radius:50%;border:1px solid transparent;background:transparent;
   color:var(--dim);cursor:pointer;font-size:12px;
   display:flex;align-items:center;justify-content:center;transition:all .15s}
 .dc-del:hover{background:rgba(255,77,109,.1);border-color:rgba(255,77,109,.3);color:var(--red)}
-
 @keyframes cardIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 .desc-card.new-card{animation:cardIn .4s ease forwards}
-
 footer{margin-top:40px;border-top:1px solid var(--bdr);padding-top:18px;
   font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--dim);line-height:2;text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
-
 <header>
   <div class="htag">▶ JP SMALL-MID CAP SCREENER · 2026</div>
   <h1>日本株 成長銘柄<br><em>スクリーニング</em></h1>
-  <p class="hsub">時価総額 30〜3,000億 ／ 伸び代 ＝ 外国人比率の低さ</p>
+  <p class="hsub">時価総額 30〜3,000 億 ／ 伸び代 ＝ 外国人比率の低さ</p>
   <div class="hline"></div>
 </header>
-
 <div class="criteria">
   <div class="crit g"><div class="crit-name">成長性</div><div class="crit-pt">40<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">売上 30%+<br>FCF 25%+</div></div>
   <div class="crit p"><div class="crit-name">収益性</div><div class="crit-pt">30<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">ROE 20%+<br>ROA 10%+</div></div>
   <div class="crit f"><div class="crit-name">財務健全性</div><div class="crit-pt">15<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">自己資本 50%+<br>負債比率 50%↓</div></div>
-  <div class="crit v"><div class="crit-name">割安度</div><div class="crit-pt">15<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">PER 10倍↓<br>PBR 1倍↓</div></div>
-  <div class="crit b"><div class="crit-name">PEGボーナス</div><div class="crit-pt">+10<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">PEG 0.5以下<br>で満点</div></div>
+  <div class="crit v"><div class="crit-name">割安度</div><div class="crit-pt">15<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">PER 10 倍↓<br>PBR 1 倍↓</div></div>
+  <div class="crit b"><div class="crit-name">PEG ボーナス</div><div class="crit-pt">+10<span style="font-size:12px;font-weight:400;color:var(--sub)">pt</span></div><div class="crit-lbl">PEG 0.5 以下<br>で満点</div></div>
   <div class="crit s"><div class="crit-name">伸び代</div><div class="crit-pt" style="font-size:18px;line-height:1.3">外国人<br>比率↓</div><div class="crit-lbl">低いほど<br>発見余地大</div></div>
 </div>
-
-<!-- SEARCH FORM -->
 <div class="search-box" id="search-box">
-  <div class="search-label">▶ 銘柄追加 <span>— 4桁コードを入力してAIスコアリング</span></div>
+  <div class="search-label">▶ 銘柄追加 <span>— 4 桁コードを入力して AI スコアリング</span></div>
   <div class="search-row">
     <input class="code-input" id="code-input" type="text" inputmode="numeric"
       maxlength="4" placeholder="1234" autocomplete="off"
@@ -248,8 +205,6 @@ footer{margin-top:40px;border-top:1px solid var(--bdr);padding-top:18px;
   <div class="load-status" id="load-status"></div>
   <div class="err-msg" id="err-msg"></div>
 </div>
-
-<!-- SORT BAR -->
 <div class="sort-bar">
   <span class="sort-label">SORT ▸</span>
   <button class="sort-btn active desc" data-key="score" onclick="sortBy('score',this)">総合スコア</button>
@@ -257,18 +212,16 @@ footer{margin-top:40px;border-top:1px solid var(--bdr);padding-top:18px;
   <button class="sort-btn" data-key="profit" onclick="sortBy('profit',this)">収益性</button>
   <button class="sort-btn" data-key="finance" onclick="sortBy('finance',this)">財務健全性</button>
   <button class="sort-btn" data-key="value" onclick="sortBy('value',this)">割安度</button>
-  <button class="sort-btn" data-key="peg" onclick="sortBy('peg',this)">PEGボーナス</button>
+  <button class="sort-btn" data-key="peg" onclick="sortBy('peg',this)">PEG ボーナス</button>
   <button class="sort-btn" data-key="stretch" onclick="sortBy('stretch',this)">伸び代（外国人↓）</button>
 </div>
-
-<!-- TABLE -->
 <div class="tbl-wrap">
   <table>
     <thead>
       <tr>
         <th class="c">#</th>
         <th>銘柄</th>
-        <th class="r">1Y予想</th>
+        <th class="r">1Y 予想</th>
         <th class="c">評価</th>
         <th class="r">スコア<span style="font-size:8px;opacity:.5">/110</span></th>
         <th>内訳 <span style="font-size:8px;opacity:.5;font-weight:400">成長/収益/財務/割安/PEG</span></th>
@@ -279,42 +232,29 @@ footer{margin-top:40px;border-top:1px solid var(--bdr);padding-top:18px;
     <tbody id="tbl"></tbody>
   </table>
 </div>
-
-<!-- DESCRIPTIONS -->
 <div class="desc-section">
   <h2>── 銘柄説明 ──────────────────────</h2>
   <div class="desc-grid" id="descs"></div>
 </div>
-
 <footer>
-  ※ スコアは公開情報をもとにした参考値。AI評価は直近データに基づく推計。投資は自己責任で。<br>
-  Updated: 2026.04.02 &nbsp;|&nbsp; 時価総額レンジ: 30億〜3,000億円
+  ※ スコアは公開情報をもとにした参考値。AI 評価は直近データに基づく推計。投資は自己責任で。<br>
+  Updated: 2026.04.02 &nbsp;|&nbsp; 時価総額レンジ：30 億〜3,000 億円
 </footer>
 </div>
 
 <script>
+// ── CONFIG ──────────────────────────────────────────
+// API Key loaded from localStorage (set via setup-api-key.html)
+const API_KEY = localStorage.getItem('sakura_api_key') || window.SAKURA_API_KEY || '';
+const API_ENDPOINT = localStorage.getItem('sakura_api_endpoint') || window.SAKURA_API_ENDPOINT || 'https://ai-engine.sakura.ad.jp/v1/chat/completions';
+
 // ── DATA ──────────────────────────────────────────
 let stocks = [
-  {id:'421A', orig:'orig', name:'ムービン S.C.', code:'421A', fc:'+120%', grade:'A+', score:98, growth:40, profit:29, finance:14, value:5,  peg:10, foreign:22, desc:'ROA 48%・PEG 0.23という圧倒的な資本効率。スタッフィング×DX領域で独走。外国人比率22%はやや高めだが、業績の質が他を圧倒。'},
-  {id:'478A', orig:'orig', name:'フツパー',        code:'478A', fc:'+85%',  grade:'A+', score:95, growth:40, profit:22, finance:13, value:10, peg:10, foreign:15, desc:'AI外観検査プラットフォーム。売上成長108%・PEG 0.19という超高成長×超割安。製造業DX需要の波に完全乗乗り。'},
-  {id:'4417', orig:'orig', name:'グローバルSE',    code:'4417', fc:'+90%',  grade:'A+', score:94, growth:39, profit:28, finance:12, value:5,  peg:10, foreign:8,  desc:'サイバーセキュリティ教育で6年間売上CAGR約38%。ROE 35%・PEG 0.45。政府DX推進の直接受益。外国人比率8%で伸び代大。'},
-  {id:'7094', orig:'added', name:'NexTone',        code:'7094', fc:'+80%',  grade:'A+', score:91, growth:38, profit:22, finance:14, value:7,  peg:10, foreign:12, desc:'民間音楽著作権管理で事実上の独占。競合ゼロ×市場拡大の希少構造。PEG 0.38は最優秀水準。ストリーミング拡大で収益自動増加。'},
-  {id:'4428', orig:'orig', name:'シノプス',        code:'4428', fc:'+75%',  grade:'A',  score:85, growth:38, profit:20, finance:12, value:8,  peg:7,  foreign:9,  desc:'AI×SDGsテーマ。在庫最適化AIで食品ロス削減に貢献。外国人比率9%と低く、機関投資家の発見余地が大きい。'},
-  {id:'4258', orig:'added', name:'網屋',           code:'4258', fc:'+70%',  grade:'A',  score:84, growth:36, profit:22, finance:13, value:6,  peg:7,  foreign:5,  desc:'ログ管理「ALog」が主力。9カ国14代理店展開。サイバー攻撃増加が追い風。外国人比率5%で伸び代最大級。'},
-  {id:'7071', orig:'added', name:'アンビスHD',     code:'7071', fc:'+65%',  grade:'A',  score:81, growth:35, profit:27, finance:11, value:3,  peg:5,  foreign:15, desc:'医療ホスピス特化の高ROE（30%）成長株。少子高齢化という構造的追い風が長期継続。全国展開加速・PEG 0.52。'},
-  {id:'3132', orig:'orig', name:'マクニカ HD',     code:'3132', fc:'+55%',  grade:'A',  score:80, growth:34, profit:22, finance:13, value:6,  peg:5,  foreign:18, desc:'AIサーバー向け需要拡大で半導体サイクル上昇の直接受益。ROE 18%・技術商社として独自ポジション確立。'},
-  {id:'6227', orig:'added', name:'AIメカテック',   code:'6227', fc:'+60%',  grade:'A',  score:78, growth:36, profit:18, finance:11, value:6,  peg:7,  foreign:10, desc:'日立スピンアウトの半導体封止装置メーカー。AI製造需要取込で来期営業利益3倍超の市場予想。'},
-  {id:'1663', orig:'orig', name:'K&Oエナジー',     code:'1663', fc:'+50%',  grade:'A',  score:77, growth:30, profit:18, finance:14, value:10, peg:5,  foreign:7,  desc:'ペロブスカイト太陽電池の原料供給元。希少性の高いポジション。財務安定。外国人比率7%、テーマ物色本格化時の急騰余地大。'},
-  {id:'330A', orig:'added', name:'タレントX',      code:'330A', fc:'+55%',  grade:'A',  score:75, growth:33, profit:24, finance:8,  value:5,  peg:5,  foreign:6,  desc:'HRテック採用マーケティング特化。ROEランキング上位常駐。採用DX需要拡大で高成長継続。外国人比率6%で発見余地あり。'},
-  {id:'4118', orig:'orig', name:'カネカ',          code:'4118', fc:'+45%',  grade:'A',  score:74, growth:28, profit:19, finance:13, value:9,  peg:5,  foreign:13, desc:'ペロブスカイト太陽電池フィルムで国内先行。素材大手の安定性を持ちつつ、次世代エネルギーテーマで再評価進む。'},
-  {id:'4221', orig:'orig', name:'大倉工業',        code:'4221', fc:'+40%',  grade:'A',  score:71, growth:27, profit:18, finance:13, value:10, peg:3,  foreign:6,  desc:'ペロブスカイト封止材で独占的地位。外国人比率6%という極めて低い水準が最大の伸び代。PBR割安。'},
-  {id:'2158', orig:'added', name:'FRONTEO',        code:'2158', fc:'+50%',  grade:'B+', score:70, growth:30, profit:15, finance:10, value:8,  peg:7,  foreign:7,  desc:'AI創薬支援×法務AIの二軸展開。潜在市場が巨大で競合少。テンバガー候補として複数メディアで言及。外国人比率7%で伸び代大。'},
-  {id:'8136', orig:'orig', name:'サンリオ',        code:'8136', fc:'+35%',  grade:'B+', score:68, growth:25, profit:21, finance:12, value:5,  peg:5,  foreign:26, desc:'IP事業グローバル展開・PEG 0.62。インバウンド回復恩恵。外国人比率26%は高めで機関投資家認知済み。安定感重視向き。'},
-  {id:'4194', orig:'added', name:'ビジョナル',     code:'4194', fc:'+40%',  grade:'B+', score:66, growth:25, profit:26, finance:10, value:0,  peg:5,  foreign:18, desc:'Bizreachブランド確立済み。ROE 40%超・PEG 0.85。外国人比率18%で機関投資家に認知されており流動性良好。'},
-  {id:'6775', orig:'orig', name:'ニッタン',        code:'6775', fc:'+30%',  grade:'B+', score:64, growth:24, profit:17, finance:13, value:7,  peg:3,  foreign:5,  desc:'半導体製造装置メーカー。受注増加トレンド継続。外国人比率5%が特徴。半導体サイクル回復で安定上昇が期待できる。'},
-  {id:'4750', orig:'added', name:'総研化学',       code:'4750', fc:'+35%',  grade:'B+', score:63, growth:20, profit:17, finance:14, value:12, peg:0,  foreign:8,  desc:'液晶粘着剤で中国シェア高。PER 6.5倍・PBR 0.74倍という圧倒的な割安感。配当利回り3.8%。割安度全銘柄トップ級。'},
-  {id:'4661', orig:'orig', name:'OLC',             code:'4661', fc:'+25%',  grade:'B',  score:58, growth:20, profit:18, finance:12, value:3,  peg:5,  foreign:28, desc:'オリエンタルランド。インバウンド回復×ブランド力。外国人比率28%は全銘柄最高で既に高く評価。安定性・知名度重視向け。'},
-  {id:'7014', orig:'added', name:'名村造船',       code:'7014', fc:'+30%',  grade:'B',  score:58, growth:22, profit:14, finance:12, value:10, peg:0,  foreign:5,  desc:'造船準大手。防衛・タンカー需要×造船サイクル上昇の複合テーマ。高配当・超割安。外国人比率5%で伸び代大。防衛費増大政策の恩恵。'},
+  {id:'421A', orig:'orig', name:'ムービン S.C.', code:'421A', fc:'+120%', grade:'A+', score:98, growth:40, profit:29, finance:14, value:5,  peg:10, foreign:22, desc:'ROA 48%・PEG 0.23 という圧倒的な資本効率。スタッフィング×DX 領域で独走。'},
+  {id:'478A', orig:'orig', name:'フツパー',        code:'478A', fc:'+85%',  grade:'A+', score:95, growth:40, profit:22, finance:13, value:10, peg:10, foreign:15, desc:'AI 外観検査プラットフォーム。売上成長 108%・PEG 0.19 という超高成長×超割安。'},
+  {id:'4417', orig:'orig', name:'グローバル SE',    code:'4417', fc:'+90%',  grade:'A+', score:94, growth:39, profit:28, finance:12, value:5,  peg:10, foreign:8,  desc:'サイバーセキュリティ教育で 6 年間売上 CAGR 約 38%。ROE 35%・PEG 0.45。'},
+  {id:'7094', orig:'added', name:'NexTone',        code:'7094', fc:'+80%',  grade:'A+', score:91, growth:38, profit:22, finance:14, value:7,  peg:10, foreign:12, desc:'民間音楽著作権管理で事実上の独占。競合ゼロ×市場拡大の希少構造。'},
+  {id:'4428', orig:'orig', name:'シノプス',        code:'4428', fc:'+75%',  grade:'A',  score:85, growth:38, profit:20, finance:12, value:8,  peg:7,  foreign:9,  desc:'AI×SDGs テーマ。在庫最適化 AI で食品ロス削減に貢献。'},
 ];
 
 let sortKey='score', sortDir=-1;
@@ -324,7 +264,6 @@ let loadTimer=null, progressVal=0;
 function stretchClass(f){ return f<=8?'stretch-hi':f<=16?'stretch-md':'stretch-lo' }
 function gradeClass(g){ return g==='A+'?'grAp':g==='A'?'grA':g==='B'||g==='B+'?'grB':'grC' }
 function scoreClass(s){ return s>=90?'s-S':s>=75?'s-A':s>=60?'s-B':'s-C' }
-
 function miniBar(s){
   const mx={growth:40,profit:30,finance:15,value:15,peg:10},H=22;
   const keys=['growth','profit','finance','value','peg'];
@@ -333,7 +272,6 @@ function miniBar(s){
   const tip=keys.map((k,i)=>`${lbl[i]}: ${s[k]}/${mx[k]}`).join(' | ');
   return `<div class="mb" title="${tip}">${keys.map((k,i)=>`<div class="mb-b ${cls[i]}" style="height:${Math.max(2,Math.round(s[k]/mx[k]*H))}px"></div>`).join('')}</div>`;
 }
-
 function tagHtml(orig){
   if(orig==='orig')  return '<span class="tag orig">独自</span>';
   if(orig==='added') return '<span class="tag added">追加</span>';
@@ -348,7 +286,6 @@ function getSorted(){
     return sortDir===-1?(bv-av):(av-bv);
   });
 }
-
 function renderTable(newId=null){
   const sorted=getSorted();
   const tbody=document.getElementById('tbl');
@@ -362,55 +299,33 @@ function renderTable(newId=null){
     const isNew=s.id===newId;
     return `<tr data-id="${s.id}"${isNew?' class="new-entry"':''}>
       <td><div class="rn ${rCls}">${rank}</div></td>
-      <td>
-        <div class="nm">${s.name}${tagHtml(s.orig)}</div>
-        <div class="cd">${s.code}</div>
-      </td>
+      <td><div class="nm">${s.name}${tagHtml(s.orig)}</div><div class="cd">${s.code}</div></td>
       <td class="fc">${s.fc}</td>
       <td><span class="gr ${gradeClass(s.grade)}">${s.grade}</span></td>
-      <td><div class="sc-wrap ${sc}">
-        <div class="sc-n">${s.score}</div>
-        <div class="sc-bg"><div class="sc-fill" style="width:${sw}%"></div></div>
-      </div></td>
+      <td><div class="sc-wrap ${sc}"><div class="sc-n">${s.score}</div><div class="sc-bg"><div class="sc-fill" style="width:${sw}%"></div></div></div></td>
       <td>${miniBar(s)}</td>
-      <td><div class="fb-wrap ${stCls}">
-        <div class="fb-pct">${s.foreign}%</div>
-        <div class="fb-bar"><div class="fb-fill" style="width:${fw}%"></div></div>
-      </div></td>
+      <td><div class="fb-wrap ${stCls}"><div class="fb-pct">${s.foreign}%</div><div class="fb-bar"><div class="fb-fill" style="width:${fw}%"></div></div></div></td>
       <td class="del-td"><button class="del-btn" title="削除" onclick="removeStock('${s.id}')">✕</button></td>
     </tr>`;
   }).join('');
 }
-
 function renderDescs(){
   const sorted=getSorted();
   document.getElementById('descs').innerHTML=sorted.map((s,i)=>`
     <div class="desc-card" id="desc-${s.id}">
       <button class="dc-del" title="削除" onclick="removeStock('${s.id}')">✕</button>
       <div class="dc-head">
-        <span class="dc-rank">${i+1}</span>
-        <span class="dc-name">${s.name}</span>
-        <span class="dc-code">${s.code}</span>
-        ${tagHtml(s.orig)}
+        <span class="dc-rank">${i+1}</span><span class="dc-name">${s.name}</span><span class="dc-code">${s.code}</span>${tagHtml(s.orig)}
       </div>
       <div class="dc-meta">1Y ${s.fc} ／ スコア ${s.score}pt ／ 外国人比率 ${s.foreign}%</div>
       <div class="dc-body">${s.desc}</div>
     </div>`).join('');
 }
-
-function render(newId=null){
-  renderTable(newId);
-  renderDescs();
-  if(newId){
-    const card=document.getElementById('desc-'+newId);
-    if(card) card.classList.add('new-card');
-  }
-}
+function render(newId=null){ renderTable(newId); renderDescs(); if(newId){ const card=document.getElementById('desc-'+newId); if(card) card.classList.add('new-card'); } }
 
 // ── SORT ──────────────────────────────────────────
 function sortBy(key,btn){
-  if(sortKey===key) sortDir*=-1;
-  else{ sortKey=key; sortDir=-1; }
+  if(sortKey===key) sortDir*=-1; else{ sortKey=key; sortDir=-1; }
   document.querySelectorAll('.sort-btn').forEach(b=>b.classList.remove('active','asc','desc'));
   btn.classList.add('active',sortDir===-1?'desc':'asc');
   render();
@@ -425,128 +340,81 @@ function removeStock(id){
 }
 
 // ── LOADING UI ────────────────────────────────────
-const msgs=[
-  '証券コード照合中…','財務データ取得中…','スコアリングモデル実行中…','評価完了、ランキング挿入中…'
-];
+const msgs=['証券コード照合中…','財務データ取得中…','スコアリング中…','AI 評価生成中…','データ統合中…'];
 function startLoading(){
-  const bar=document.getElementById('load-bar');
-  const fill=document.getElementById('load-fill');
-  const status=document.getElementById('load-status');
-  const btn=document.getElementById('search-btn');
-  const box=document.getElementById('search-box');
+  const bar=document.getElementById('load-bar'),fill=document.getElementById('load-fill'),
+        status=document.getElementById('load-status'),btn=document.getElementById('search-btn'),
+        box=document.getElementById('search-box');
   document.getElementById('err-msg').classList.remove('show');
-  bar.classList.add('show'); status.classList.add('show');
-  box.classList.add('loading'); btn.disabled=true;
-  progressVal=0; fill.style.width='0%';
-  let msgIdx=0;
+  bar.classList.add('show');status.classList.add('show');box.classList.add('loading');btn.disabled=true;
+  progressVal=0;fill.style.width='0%';let msgIdx=0;
   status.innerHTML=msgs[0]+' <span class="blink">▋</span>';
   loadTimer=setInterval(()=>{
-    progressVal=Math.min(progressVal+Math.random()*6+2,92);
-    fill.style.width=progressVal+'%';
+    progressVal=Math.min(progressVal+Math.random()*6+2,92);fill.style.width=progressVal+'%';
     const newIdx=Math.floor((progressVal/93)*msgs.length);
-    if(newIdx!==msgIdx && newIdx<msgs.length){
-      msgIdx=newIdx;
-      status.innerHTML=msgs[msgIdx]+' <span class="blink">▋</span>';
-    }
+    if(newIdx!==msgIdx && newIdx<msgs.length){ msgIdx=newIdx; status.innerHTML=msgs[msgIdx]+' <span class="blink">▋</span>'; }
   },120);
 }
 function stopLoading(ok){
   clearInterval(loadTimer);
-  const bar=document.getElementById('load-bar');
-  const fill=document.getElementById('load-fill');
-  const status=document.getElementById('load-status');
-  const btn=document.getElementById('search-btn');
-  const box=document.getElementById('search-box');
-  fill.style.width=ok?'100%':'0%';
-  box.classList.remove('loading');
-  btn.disabled=false;
-  setTimeout(()=>{ bar.classList.remove('show'); status.classList.remove('show'); fill.style.width='0%'; },800);
+  const bar=document.getElementById('load-bar'),fill=document.getElementById('load-fill'),
+        status=document.getElementById('load-status'),btn=document.getElementById('search-btn'),
+        box=document.getElementById('search-box');
+  fill.style.width=ok?'100%':'0%';box.classList.remove('loading');btn.disabled=false;
+  setTimeout(()=>{ bar.classList.remove('show');status.classList.remove('show');fill.style.width='0%'; },800);
+}
+
+// ── JSON LOGGING ──────────────────────────────────
+async function logToJSON(code,data){
+  const logEntry={timestamp:new Date().toISOString(),code:code,result:data};
+  let logs=[];try{const stored=localStorage.getItem('stock_screening_log');if(stored)logs=JSON.parse(stored);}catch(e){}
+  logs.push(logEntry);localStorage.setItem('stock_screening_log',JSON.stringify(logs));
+  const apiEndpoint=window.STOCK_API_ENDPOINT||'';
+  if(apiEndpoint){try{await fetch(apiEndpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(logEntry)});}catch(e){console.log('API log failed:',e);}}
 }
 
 // ── SEARCH ────────────────────────────────────────
 async function doSearch(){
-  const inp=document.getElementById('code-input');
-  const errEl=document.getElementById('err-msg');
-  const code=inp.value.trim().toUpperCase();
+  const inp=document.getElementById('code-input'),errEl=document.getElementById('err-msg'),
+        code=inp.value.trim().toUpperCase();
   errEl.classList.remove('show');
-
-  if(code.length<3||code.length>5){ errEl.textContent='3〜5文字で入力してください（例：4417 / 478A）'; errEl.classList.add('show'); return; }
-  if(stocks.find(s=>s.code===code)){ errEl.textContent=`${code} はすでにリストに存在します`; errEl.classList.add('show'); return; }
+  if(code.length<3||code.length>5){errEl.textContent='3〜5 文字で入力してください（例：4417 / 478A）';errEl.classList.add('show');return;}
+  if(stocks.find(s=>s.code===code)){errEl.textContent=`${code} はすでにリストに存在します`;errEl.classList.add('show');return;}
+  if(!API_KEY){errEl.textContent='API キーが設定されていません。コンソールで window.SAKURA_API_KEY を設定してください。';errEl.classList.add('show');return;}
 
   startLoading();
+  const prompt=`あなたは日本株の専門アナリストです。証券コード「${code}」を以下で採点：
+評価基準 (110 点満点):
+- 成長性 (growth):0-40 点 売上成長率 30%+ で満点
+- 収益性 (profit):0-30 点 ROE20%+/ROA10%+ で満点
+- 財務健全性 (finance):0-15 点 自己資本 50%+ で満点
+- 割安度 (value):0-15 点 PER10 倍以下/PBR1 倍以下で満点
+- PEG ボーナス (peg):0-10 点 PEG0.5 以下で満点
 
-  const prompt=`あなたは日本株の専門アナリストです。以下の証券コード「${code}」の銘柄を、下記の評価基準で採点してください。
-
-評価基準（合計110点満点）:
-- 成長性 (growth): 0〜40点 ── 売上成長率30%+で満点
-- 収益性 (profit): 0〜30点 ── ROE20%+/ROA10%+/利益率15%+で満点
-- 財務健全性 (finance): 0〜15点 ── 自己資本比率50%+/負債比率50%以下で満点
-- 割安度 (value): 0〜15点 ── PER10倍以下/PBR1倍以下で満点
-- PEGボーナス (peg): 0〜10点 ── PEG0.5以下で満点
-
-必ずJSON形式のみで回答してください（説明文・コードブロック記号は不要）:
-{
-  "name": "銘柄名（日本語）",
-  "fc": "+XX%（1年後予想騰落率）",
-  "grade": "A+またはAまたはB+またはBまたはC",
-  "score": 総合点数(数値),
-  "growth": 成長性点数(数値),
-  "profit": 収益性点数(数値),
-  "finance": 財務健全性点数(数値),
-  "value": 割安度点数(数値),
-  "peg": PEGボーナス点数(数値),
-  "foreign": 外国人持株比率の概算%(数値のみ),
-  "desc": "銘柄の特徴・強み・テーマを2〜3文で"
-}`;
+JSON 形式のみで回答：
+{"name":"銘柄名","fc":"+XX%","grade":"A+","score":90,"growth":35,"profit":25,"finance":12,"value":8,"peg":10,"foreign":15,"desc":"説明"}`;
 
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch(API_ENDPOINT,{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:1000,
-        messages:[{role:'user',content:prompt}]
-      })
+      headers:{'Content-Type':'application/json','Authorization':`Bearer ${API_KEY}`},
+      body:JSON.stringify({model:'sakura-v1',messages:[{role:'user',content:prompt}],temperature:0.3})
     });
-    if(!res.ok) throw new Error('API error '+res.status);
+    if(!res.ok){const t=await res.text();throw new Error(`API ${res.status}: ${t}`);}
     const data=await res.json();
-    const raw=data.content.filter(c=>c.type==='text').map(c=>c.text).join('');
+    const raw=data.choices?.[0]?.message?.content||'';
     const clean=raw.replace(/```json|```/g,'').trim();
     const parsed=JSON.parse(clean);
-
-    const newStock={
-      id:code, orig:'new',
-      name:parsed.name||code,
-      code:code,
-      fc:parsed.fc||'+??%',
-      grade:parsed.grade||'B',
-      score:Math.min(110,Math.max(0,Number(parsed.score)||50)),
-      growth:Math.min(40,Math.max(0,Number(parsed.growth)||20)),
-      profit:Math.min(30,Math.max(0,Number(parsed.profit)||15)),
-      finance:Math.min(15,Math.max(0,Number(parsed.finance)||8)),
-      value:Math.min(15,Math.max(0,Number(parsed.value)||5)),
-      peg:Math.min(10,Math.max(0,Number(parsed.peg)||3)),
-      foreign:Math.min(50,Math.max(0,Number(parsed.foreign)||15)),
-      desc:parsed.desc||''
-    };
-
-    stocks.push(newStock);
-    stopLoading(true);
-    inp.value='';
-    render(code);
-
-    // scroll to new row
-    setTimeout(()=>{
-      const el=document.querySelector(`tr[data-id="${code}"]`);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'center'});
-    },200);
-
+    const newStock={id:code,orig:'new',name:parsed.name||code,code:code,fc:parsed.fc||'+??%',grade:parsed.grade||'B',
+      score:Math.min(110,Math.max(0,Number(parsed.score)||50)),growth:Math.min(40,Math.max(0,Number(parsed.growth)||20)),
+      profit:Math.min(30,Math.max(0,Number(parsed.profit)||15)),finance:Math.min(15,Math.max(0,Number(parsed.finance)||8)),
+      value:Math.min(15,Math.max(0,Number(parsed.value)||5)),peg:Math.min(10,Math.max(0,Number(parsed.peg)||3)),
+      foreign:Math.min(50,Math.max(0,Number(parsed.foreign)||15)),desc:parsed.desc||''};
+    await logToJSON(code,newStock);stocks.push(newStock);stopLoading(true);inp.value='';render(code);
+    setTimeout(()=>{const el=document.querySelector(`tr[data-id="${code}"]`);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},200);
   }catch(e){
-    stopLoading(false);
-    const errEl=document.getElementById('err-msg');
-    errEl.textContent='評価に失敗しました: '+e.message;
-    errEl.classList.add('show');
+    stopLoading(false);const errEl=document.getElementById('err-msg');
+    errEl.textContent='評価に失敗しました：'+e.message;errEl.classList.add('show');
   }
 }
 
