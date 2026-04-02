@@ -403,7 +403,7 @@ JSON 形式のみで回答：
     const res=await fetch(API_ENDPOINT,{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':`Bearer ${API_KEY}`},
-      body:JSON.stringify({model:'sakura-v1',messages:[{role:'user',content:prompt}],temperature:0.3})
+      body:JSON.stringify({model:'llama-3.1-sw-2.7b-instruct-0829',messages:[{role:'user',content:prompt}],temperature:0.3})
     });
     if(!res.ok){const t=await res.text();throw new Error(`API ${res.status}: ${t}`);}
     const data=await res.json();
